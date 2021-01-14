@@ -19,3 +19,17 @@ spec:
         env:
         - name: branch
           value: <BRANCH_NAME>
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    app: jenkins-demo
+  name: jenkins-demo
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: jenkins-demo
